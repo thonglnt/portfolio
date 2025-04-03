@@ -1,0 +1,27 @@
+.about-avatar {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 20px 0;
+}
+
+.about-name {
+  font-weight: bold;
+  color: #6f6f6f;
+  text-align: center;
+}
+
+.about-intro {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+.about-quote {
+  font-style: italic;
+  color: #666;
+  margin: 25px 50px 10px;
+  border-left: 3px solid #ccc;
+  padding-left: 15px;
+}

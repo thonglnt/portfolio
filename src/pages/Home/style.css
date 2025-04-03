@@ -1,0 +1,9 @@
+.description {
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.note {
+  font-style: italic;
+  margin-top: var(--space-lg);
+}
