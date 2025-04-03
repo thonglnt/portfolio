@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Menu from "@/components/Menu";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Projects from "@/pages/Projects";
 
-interface DashboardProps {
-  children?: React.ReactNode;
-}
+// interface DashboardProps {
+//   children?: React.ReactNode;
+// }
 
-const Dashboard = ({ children }: DashboardProps) => {
+const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState<string>("home");
 
   const renderContent = () => {
@@ -17,7 +17,7 @@ const Dashboard = ({ children }: DashboardProps) => {
         return <Home />;
       case "about":
         return <About />;
-        case "projects":
+      case "projects":
         return <Projects />;
       default:
         return <Home />;
