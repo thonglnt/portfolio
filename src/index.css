@@ -19,6 +19,7 @@
   --font-size-lg: 20px;
   --font-size-xl: 24px;
   --font-size-2xl: 36px;
+  --font-size-3xl: 40px;
 
   /* Font weight */
   --font-weight-bold: bold;
@@ -39,6 +40,40 @@
   --transition-fast: 0.3s ease;
 }
 
+.light {
+  --text-title-color: #171717;
+  --background-color: #fff;
+  --text-default-color: #6f6f6f;
+  --text-btn-color: #858585;
+  --menu-bg-color: #fefefe;
+  --menu-item-bg: #e8e8e8;
+  --menu-icon-color: #858585;
+  --social-icon-hover: #000;
+  /* --border-dot: #e2e2e2; */
+  --bg-color-search-repo: #f9f9f9;
+  --bg-repo-box-hover: #f7f8f9;
+  --repo-name-color: #171717;
+  --repo-box: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+}
+
+.dark {
+  --text-title-color: #ededed;
+  --background-color: #161616;
+  --text-default-color: #a0a0a0;
+  --text-btn-color: #a0a0a0;
+  --menu-bg-color: #161616;
+  --menu-item-bg: #232323;
+  --menu-icon-color: #7e7e7e;
+  --social-icon-hover: #e6e2e2;
+  /* --border-dot: #343434; */
+  --bg-color-search-repo: #161616;
+  --bg-repo-box-hover: #222;
+  --repo-name-color: #ededed;
+  --repo-box: 0 4px 8px rgba(255, 255, 255, 0.12);
+
+}
+
 *,
 *::before,
 *::after {
@@ -53,35 +88,27 @@ body {
   min-height: 100%;
 }
 
-.container {
-  padding: 80px;
-}
-
-.light {
-  --text-title-color: #171717;
-  --background-color: #fff;
-  --text-default-color: #6f6f6f;
-  --text-btn-color: #858585;
-}
-
-.dark {
-  --text-title-color: #adadad;
-  --background-color: #121212;
-  --text-default-color: #6f6f6f;
-  --text-btn-color: #a0a0a0;
+.dashboard-layout {
+  min-height: 100vh;
+  background-color: var(--background-color);
 }
 
 .dashboard-content {
-  background-color: var(--background-color);
   color: var(--text-default-color);
   display: flex;
   width: 100%;
   /* height: 100%; */
   min-height: 100%;
+  max-width: 720px;
+  margin: 0px auto;
+}
+
+.container {
+  padding: 90px 16px 120px;
 }
 
 .title {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   font-family: var(--font-family-1);
   color: var(--text-title-color);
@@ -106,6 +133,58 @@ body {
   border: 1px solid #ccc;
   background-color: var(--background-color);
   color: var(--text-btn-color);
+}
+
+/* Menu */
+.menu-container {
+  background: var(--menu-bg-color);
+}
+
+.menu-item {
+  background: var(--menu-item-bg);
+}
+
+.menu-item svg {
+  color: var(--menu-icon-color);
+}
+
+/* Social icon */
+.icon:hover {
+  color: var(--social-icon-hover);
+}
+
+/* Projects */
+.search-repo-title {
+  font-size: 17px;
+  color: var(--text-title-color);
+  font-family: Magnat Text, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+  font-weight: 450;
+  margin-top: var(--space-lg);
+}
+
+.search-repo-input {
+  background-color: var(--bg-color-search-repo);
+}
+
+.redirect-repo {
+  color: var(--text-default-color);
+}
+
+.repo-box:hover {
+  background-color: var(--bg-repo-box-hover);
+}
+
+.repo-name {
+  color: var(--repo-name-color);
+}
+
+.repo-stars {
+  color: var(--repo-name-color);
+}
+
+.repo-box {
+  box-shadow: var(--repo-box)
 }
 
 /* .app {

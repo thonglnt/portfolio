@@ -2,15 +2,23 @@ import Divider from "@/components/Divider";
 import "./style.css";
 import Avatar from "@/assets/avatar.jpg";
 import Social from "@/components/Social";
+import { useTheme } from "@/App";
+// import TypingSpeedTest from "@/components/TypingSpeedTest";
 
 const About = () => {
+  const { theme } = useTheme();
+
   return (
     <div className="container">
       <h1 className="title">Giới thiệu</h1>
       <p className="subtitle">
         Một chút điều thú vị về tớ và những điều lớn lao.
       </p>
-      <Divider height="1px" width="80%" borderTop="1px dotted #ccc" />
+      <Divider
+        height="1px"
+        width="100%"
+        borderTop={theme === "dark" ? "2px dotted #343434" : "2px dotted #e2e2e2"}
+      />
       <div style={{ display: "grid", justifyContent: "center" }}>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <img src={Avatar} alt="avatar" className="about-avatar" />
@@ -44,7 +52,10 @@ const About = () => {
         tiếng mỗi ngày, hay là ngồi code cả tối. Hihi, chắc là hết rồi, tạm gác
         ở đây nha!
       </p>
-      <p style={{ fontStyle: "italic", marginTop: '15px' }}>Vai dong thu tay viet voi</p>
+      <p style={{ fontStyle: "italic", marginTop: "15px" }}>
+        Vài dòng thư tay viết vội.
+      </p>
+      {/* <TypingSpeedTest /> */}
     </div>
   );
 };

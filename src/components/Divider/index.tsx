@@ -1,7 +1,7 @@
 interface DividerProps {
   width?: string;
   height?: string;
-  color?: string;
+  bgColor?: string;
   type?: "horizontal" | "vertical";
   margin?: string;
   borderTop?: string;
@@ -10,7 +10,7 @@ interface DividerProps {
 const Divider = ({
   width,
   height,
-  color = "#6f6f6f",
+  bgColor,
   margin,
   borderTop,
 }: DividerProps) => {
@@ -19,7 +19,7 @@ const Divider = ({
       style={{
         width: width,
         height: height,
-        backgroundColor: color,
+        backgroundColor: bgColor,
         margin: margin,
         borderTop: borderTop,
       }}

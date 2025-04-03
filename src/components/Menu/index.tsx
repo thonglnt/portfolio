@@ -17,59 +17,71 @@ interface MenuProps {
   setCurrentPage: (pageName: string) => void;
 }
 
+interface MenuItem {
+  icon: React.ReactNode;
+  label: string;
+  page?: string;
+}
+
 const Menu = ({ setCurrentPage }: MenuProps) => {
   const { toggleTheme } = useTheme();
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
-  const menuItems = [
+  const menuItems: MenuItem[] = [
+    { icon: <HomeOutlined />, label: "Home", page: "home" },
     {
-      icon: <HomeOutlined onClick={() => setCurrentPage("home")} />,
-      label: "Home",
+      icon: <Divider height="30px" width="1px" bgColor="#e2e2e2" />,
+      label: "",
     },
-    { icon: <Divider height="30px" width="1px" />, label: "" },
-    {
-      icon: <UserOutlined onClick={() => setCurrentPage("about")} />,
-      label: "About",
-    },
-    { icon: <FolderOutlined onClick={() => setCurrentPage("project")} />, label: "Projects" },
+    { icon: <UserOutlined />, label: "About", page: "about" },
+    { icon: <FolderOutlined />, label: "Projects", page: "projects" },
     { icon: <RiBrushFill />, label: "Design" },
-    { icon: <GithubOutlined onClick={() => setCurrentPage("github")} />, label: "GitHub" },
-    { icon: <InstagramOutlined onClick={() => setCurrentPage("ins")} />, label: "Instagram" },
+    { icon: <GithubOutlined />, label: "GitHub", page: "github" },
+    { icon: <InstagramOutlined />, label: "Instagram", page: "ins" },
     { icon: <RiBehanceFill />, label: "Behance" },
     { icon: <RiArticleFill />, label: "Blog" },
-    { icon: <Divider height="30px" width="1px" />, label: "" },
-    { icon: <SettingOutlined onClick={toggleTheme} />, label: "Settings" },
+    {
+      icon: <Divider height="30px" width="1px" bgColor="#e2e2e2" />,
+      label: "",
+    },
+    {
+      icon: <SettingOutlined />,
+      label: "Settings",
+      page: "settings",
+    },
   ];
+
+  const handleClick = (index: number, page?: string) => {
+    setActiveIndex(index);
+    if (!page) return;
+
+    if (page === "settings") toggleTheme();
+    else setCurrentPage(page);
+  };
 
   return (
     <div className="menu-container">
-      {menuItems.map((item, index) => {
-        if (!item.label) {
-          return item.icon;
-        } else {
-          return (
-            <>
-              <Tooltip
-                title={item.label}
-                key={index}
-                placement="top"
-                color="#fff"
-                overlayInnerStyle={{ color: "#000" }}
-              >
-                <div
-                  className={`menu-item ${
-                    activeIndex === index ? "active" : ""
-                  }`}
-                  onClick={() => setActiveIndex(index)}
-                >
-                  {item.icon}
-                  {activeIndex === index && <div className="dot" />}
-                </div>
-              </Tooltip>
-            </>
-          );
-        }
-      })}
+      {menuItems.map((item, index) =>
+        !item.label ? (
+          <React.Fragment key={index}>{item.icon}</React.Fragment>
+        ) : (
+          <Tooltip
+            title={item.label}
+            key={index}
+            placement="top"
+            color="#fff"
+            overlayInnerStyle={{ color: "#000" }}
+          >
+            <div
+              className={`menu-item ${activeIndex === index ? "active" : ""}`}
+              onClick={() => handleClick(index, item.page)}
+            >
+              {item.icon}
+              {activeIndex === index && <div className="dot" />}
+            </div>
+          </Tooltip>
+        )
+      )}
     </div>
   );
 };

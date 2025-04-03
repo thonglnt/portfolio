@@ -8,6 +8,7 @@ const Home = () => {
     <div className="container">
       <h1 className="title">Trung Thông</h1>
       <p className="subtitle">Software Engineer / Photographer</p>
+      <Divider type="horizontal" width="30%" height="1px" margin="10px 0px" bgColor="#6f6f6f" />
       <p className="description">
         Xin chào, tớ là Trung Thông (Tandy.Le), sinh viên chuyên ngành Kỹ thuật
         phần mềm tại FPT. Tớ đang là freelancer photographer và là một
@@ -26,32 +27,11 @@ const Home = () => {
         </Button>
         <span style={{ marginLeft: "5px" }}>để khám phá...</span>
       </div>
-      <Divider type="horizontal" width="30%" height="1px" margin="10px 0px" />
+      <Divider type="horizontal" width="30%" height="1px" margin="10px 0px" bgColor="#6f6f6f" />
       <Social />
-      {/* <div className="social-buttons">
-        <Button className="bg-btn">Resume</Button>
-        <Divider type="vertical" height="25px" width="1px" margin="0px 20px" />
-        <FacebookOutlined
-          onClick={() =>
-            handleClickIcon("https://www.facebook.com/letrung.thong.96")
-          }
-          className="icon"
-          style={{ marginLeft: "0px" }}
-        />
-        <InstagramOutlined
-          onClick={() =>
-            handleClickIcon("https://www.instagram.com/letrung.thong")
-          }
-          className="icon"
-        />
-        <GithubOutlined
-          onClick={() => handleClickIcon("https://github.com/thonglnt")}
-          className="icon"
-        />
-        <RiBehanceFill onClick={() => handleClickIcon("")} className="icon" />
-      </div> */}
+      <Divider type="horizontal" width="10%" height="1px" margin="10px 0px" bgColor="#6f6f6f" />
       <p className="note">
-        Dùng máy tính để có trải nghiệm tốt nhất. Horizontal
+        Dùng máy tính để có trải nghiệm tốt nhất.
       </p>
       <p style={{ marginTop: "20px" }}>
         <strong className="text-gray">Trung Thông</strong>

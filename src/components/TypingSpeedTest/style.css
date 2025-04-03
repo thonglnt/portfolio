@@ -1,0 +1,76 @@
+.typing-container {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.sample-text {
+  width: 600px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.typing-area {
+  width: 600px;
+  height: 120px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.typing-stats {
+  text-align: center;
+}
+
+.completed {
+  color: green;
+}
+
+.restart-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.keyboard {
+  margin-top: 20px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.key {
+  width: 38px;
+  height: 38px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #000;
+  text-transform: capitalize;
+  transition: background 0.2s;
+}
+
+.key.active {
+  background: #4caf50;
+  color: #fff;
+}
+
+.key.Space {
+  width: 240px;
+}
+.key.Shift,
+.key.Enter {
+  width: 70px;
+}

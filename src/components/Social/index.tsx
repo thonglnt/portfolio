@@ -17,7 +17,7 @@ const Social = () => {
   return (
     <div className="social-buttons">
       <Button className="bg-btn">Resume</Button>
-      <Divider type="vertical" height="25px" width="1px" margin="0px 20px" />
+      <Divider type="vertical" height="25px" width="1px" margin="0px 20px" bgColor="#e2e2e2" />
       <FacebookOutlined
         onClick={() =>
           handleClickIcon("https://www.facebook.com/letrung.thong.96")

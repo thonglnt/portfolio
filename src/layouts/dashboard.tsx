@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Menu from "@/components/Menu";
 import Home from "@/pages/Home";
-import About from "@/components/About";
+import About from "@/pages/About";
+import Projects from "@/pages/Projects";
 
 interface DashboardProps {
   children?: React.ReactNode;
@@ -16,17 +17,18 @@ const Dashboard = ({ children }: DashboardProps) => {
         return <Home />;
       case "about":
         return <About />;
+        case "projects":
+        return <Projects />;
       default:
         return <Home />;
     }
   };
 
   return (
-    <div
-      className="dashboard-layout"
-      style={{ width: "100%", height: "100%", minHeight: "100%" }}
-    >
-      <main className="dashboard-content"><div>{renderContent()}</div></main>
+    <div className="dashboard-layout" style={{ width: "100%", height: "100%" }}>
+      <main className="dashboard-content">
+        <div>{renderContent()}</div>
+      </main>
       <Menu setCurrentPage={setCurrentPage} />
     </div>
   );

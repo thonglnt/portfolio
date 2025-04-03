@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fefefe;
   padding: 10px;
   border-radius: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -11,6 +10,7 @@
   left: 50%;
   transform: translateX(-50%);
   gap: 10px;
+  border: 2px solid #ffffff14;
 }
 
 .menu-item {
@@ -21,7 +21,6 @@
   justify-content: center;
   font-size: 22px;
   cursor: pointer;
-  background: #e8e8e8;
   border-radius: 10px;
   transition: transform 0.3s ease, background 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -34,7 +33,7 @@
   transform-origin: bottom center;
 }
 
-menu-item:hover .dot {
+.menu-item:hover .dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -42,5 +41,4 @@ menu-item:hover .dot {
   position: absolute;
   bottom: 4px;
   z-index: 99999;
-  /* transform-origin: top center; */
 }
