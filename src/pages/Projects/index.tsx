@@ -19,7 +19,7 @@ const Projects = () => {
         );
         const data = await res.json();
         setAllRepos(data);
-        setResults(data); // display all by default
+        setResults(data);
       } catch (err) {
         console.error("Lỗi fetch tất cả repo:", err);
       }
@@ -50,6 +50,31 @@ const Projects = () => {
   return (
     <div className="container" style={{ maxWidth: "720px" }}>
       <h1 className="title">Dự án</h1>
+      <p className="subtitle">Những dự án lập trình đang hoạt động của tớ.</p>
+      <Divider
+        height="1px"
+        width="100%"
+        borderTop={
+          theme === "dark" ? "2px dotted #343434" : "2px dotted #e2e2e2"
+        }
+      />
+      <ul className="active-projects-list">
+        <li className="active-project-item">
+          <a
+            href="https://animechina.io.vn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3 className="active-project-title">Trang xem phim Anime</h3>
+            <p className="active-project-desc">
+              Trang web cho phép người dùng tìm kiếm và xem phim anime, truy cập
+              thông tin chi tiết như tiêu đề, thể loại, năm phát hành và xếp
+              hạng.
+            </p>
+          </a>
+        </li>
+      </ul>
+      <Divider height="1px" width="30%" bgColor="#e2e2e2" margin="20px 0" />
       <p className="subtitle">
         Những dự án lập trình cá nhân publish của tớ từ Github.
       </p>

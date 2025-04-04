@@ -3,6 +3,8 @@ import Menu from "@/components/Menu";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Projects from "@/pages/Projects";
+import Contact from "@/pages/Contact";
+import Youtube from "@/pages/Youtube";
 
 // interface DashboardProps {
 //   children?: React.ReactNode;
@@ -19,6 +21,10 @@ const Dashboard = () => {
         return <About />;
       case "projects":
         return <Projects />;
+      case "contact":
+        return <Contact />;
+      case "youtube":
+        return <Youtube />;
       default:
         return <Home />;
     }

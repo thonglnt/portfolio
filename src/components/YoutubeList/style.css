@@ -1,0 +1,50 @@
+.youtube-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.youtube-card {
+  display: flex;
+  gap: 12px;
+  text-decoration: none;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+  padding: 12px 16px;
+}
+
+.youtube-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.youtube-thumbnail {
+  width: 180px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.youtube-info {
+  /* padding: 12px 16px; */
+  flex: 1;
+}
+
+.youtube-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 4px;
+}
+
+.youtube-channel {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.youtube-date {
+  font-size: 12px;
+  color: #999;
+}

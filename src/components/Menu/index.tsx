@@ -7,8 +7,9 @@ import {
   SettingOutlined,
   GithubOutlined,
   InstagramOutlined,
+  LinkOutlined,
+  YoutubeOutlined,
 } from "@ant-design/icons";
-import { RiBehanceFill, RiBrushFill, RiArticleFill } from "react-icons/ri";
 import "./style.css";
 import Divider from "../Divider";
 import { useTheme } from "@/App";
@@ -35,11 +36,12 @@ const Menu = ({ setCurrentPage }: MenuProps) => {
     },
     { icon: <UserOutlined />, label: "About", page: "about" },
     { icon: <FolderOutlined />, label: "Projects", page: "projects" },
-    { icon: <RiBrushFill />, label: "Design" },
+    // { icon: <RiBrushFill />, label: "Design" },
     { icon: <GithubOutlined />, label: "GitHub", page: "github" },
     { icon: <InstagramOutlined />, label: "Instagram", page: "ins" },
-    { icon: <RiBehanceFill />, label: "Behance" },
-    { icon: <RiArticleFill />, label: "Blog" },
+    { icon: <YoutubeOutlined />, label: "Youtube", page: "youtube" },
+    // { icon: <RiArticleFill />, label: "Blog" },
+    { icon: <LinkOutlined />, label: "Contact", page: "contact" },
     {
       icon: <Divider height="30px" width="1px" bgColor="#e2e2e2" />,
       label: "",
@@ -55,8 +57,20 @@ const Menu = ({ setCurrentPage }: MenuProps) => {
     setActiveIndex(index);
     if (!page) return;
 
-    if (page === "settings") toggleTheme();
-    else setCurrentPage(page);
+    switch (page) {
+      case "settings":
+        toggleTheme();
+        break;
+      case "github":
+        window.open("https://github.com/thonglnt", "_blank");
+        break;
+      case "ins":
+        window.open("https://www.instagram.com/letrung.thong", "_blank");
+        break;
+      default:
+        setCurrentPage(page);
+        break;
+    }
   };
 
   return (

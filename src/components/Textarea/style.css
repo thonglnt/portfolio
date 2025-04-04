@@ -1,0 +1,32 @@
+.rounded-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.rounded-input-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+}
+
+.rounded-textarea-field {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  color: #807d7d;
+  resize: vertical;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.rounded-textarea-field::placeholder {
+  color: #a8a8a8;
+}
+
+.rounded-textarea-field:focus {
+  box-shadow: 0 0 0 2px #cbd5e1;
+}
