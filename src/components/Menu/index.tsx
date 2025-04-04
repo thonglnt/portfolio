@@ -61,27 +61,29 @@ const Menu = ({ setCurrentPage }: MenuProps) => {
 
   return (
     <div className="menu-container">
-      {menuItems.map((item, index) =>
-        !item.label ? (
-          <React.Fragment key={index}>{item.icon}</React.Fragment>
-        ) : (
-          <Tooltip
-            title={item.label}
-            key={index}
-            placement="top"
-            color="#fff"
-            overlayInnerStyle={{ color: "#000" }}
-          >
-            <div
-              className={`menu-item ${activeIndex === index ? "active" : ""}`}
-              onClick={() => handleClick(index, item.page)}
+      <div className="menu-scroll">
+        {menuItems.map((item, index) =>
+          !item.label ? (
+            <React.Fragment key={index}>{item.icon}</React.Fragment>
+          ) : (
+            <Tooltip
+              title={item.label}
+              key={index}
+              placement="top"
+              color="#fff"
+              overlayInnerStyle={{ color: "#000" }}
             >
-              {item.icon}
-              {activeIndex === index && <div className="dot" />}
-            </div>
-          </Tooltip>
-        )
-      )}
+              <div
+                className={`menu-item ${activeIndex === index ? "active" : ""}`}
+                onClick={() => handleClick(index, item.page)}
+              >
+                {item.icon}
+                {activeIndex === index && <div className="dot" />}
+              </div>
+            </Tooltip>
+          )
+        )}
+      </div>
     </div>
   );
 };

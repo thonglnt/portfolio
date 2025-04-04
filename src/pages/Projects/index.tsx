@@ -48,7 +48,7 @@ const Projects = () => {
   }, [debouncedTerm, allRepos]);
 
   return (
-    <div className="container" style={{ width: "720px" }}>
+    <div className="container" style={{ maxWidth: "720px" }}>
       <h1 className="title">Dự án</h1>
       <p className="subtitle">
         Những dự án lập trình cá nhân publish của tớ từ Github.

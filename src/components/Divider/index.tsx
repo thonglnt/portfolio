@@ -22,6 +22,8 @@ const Divider = ({
         backgroundColor: bgColor,
         margin: margin,
         borderTop: borderTop,
+        flexShrink: 0,
+        flexGrow: 0,
       }}
     />
   );
