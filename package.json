@@ -12,6 +12,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@hcaptcha/react-hcaptcha": "^1.12.0",
+    "@tanstack/react-query": "^5.72.0",
     "antd": "^5.24.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

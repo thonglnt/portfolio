@@ -1,17 +1,19 @@
-import Divider from "@/components/Divider";
 import { useEffect, useState } from "react";
-import YoutubeMusicList from "@/components/YoutubeList";
 import { VideoItem } from "@/interfaces/videosItem";
+import Divider from "@/components/Divider";
+import YoutubeMusicList from "@/components/YoutubeList";
+// import { fetcher } from "@/utils/fetcher";
 
 const Youtube = () => {
   const API_KEY = import.meta.env.VITE_GOOGLE_CREDENTIAL_KEY;
   const CHANNEL_ID = "UCXQlthOK_g1CUkvqZjAXdGA";
-  console.log(API_KEY);
   const [videos, setVideos] = useState<{ items: VideoItem[] }>({ items: [] });
 
   const fetchPopularVideos = async () => {
     const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=viewCount&maxResults=10&type=video`;
 
+    // const data = await fetcher<VideoItem>(url);
+    // setVideos(data);
     try {
       const response = await fetch(url);
       const data = await response.json();

@@ -1,12 +1,12 @@
 import { useState, useRef } from "react";
-import Divider from "@/components/Divider";
+import { toast } from "react-toastify";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+import emailjs from "@emailjs/browser";
 import { useTheme } from "@/App";
+import Divider from "@/components/Divider";
 import Input from "@/components/Input";
 import Textarea from "@/components/Textarea";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import emailjs from "@emailjs/browser";
 import "./style.css";
 
 const Contact = () => {
@@ -89,7 +89,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="container" style={{ width: "100vh" }}>
+    <div className="container">
       <h1 className="title">Liên hệ</h1>
       <p className="subtitle">Mọi người liên hệ với tớ qua form này nhé.</p>
       <Divider

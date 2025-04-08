@@ -1,14 +1,10 @@
 import { useState } from "react";
-import Menu from "@/components/Menu";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Projects from "@/pages/Projects";
 import Contact from "@/pages/Contact";
 import Youtube from "@/pages/Youtube";
-
-// interface DashboardProps {
-//   children?: React.ReactNode;
-// }
+import Menu from "@/components/Menu";
 
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState<string>("home");

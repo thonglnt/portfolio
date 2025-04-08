@@ -1,13 +1,11 @@
-import "./style.css";
 import { VideoItem } from "@/interfaces/videosItem";
+import "./style.css";
 
 interface YoutubeMusicListProps {
   videos: VideoItem[];
 }
 
 const YoutubeMusicList = ({ videos }: YoutubeMusicListProps) => {
-  console.log(videos);
-
   return (
     <div className="youtube-list">
       {videos.map((video) => (

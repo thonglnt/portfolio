@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IModalConfirm } from "@/interfaces/modal";
 import { Tooltip } from "antd";
 import {
   HomeOutlined,
@@ -10,9 +11,10 @@ import {
   LinkOutlined,
   YoutubeOutlined,
 } from "@ant-design/icons";
-import "./style.css";
-import Divider from "../Divider";
 import { useTheme } from "@/App";
+import Divider from "@/components/Divider";
+import ModalConfirm from "@/components/Modal";
+import "./style.css";
 
 interface MenuProps {
   setCurrentPage: (pageName: string) => void;
@@ -27,6 +29,11 @@ interface MenuItem {
 const Menu = ({ setCurrentPage }: MenuProps) => {
   const { toggleTheme } = useTheme();
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const [modalConfirm, setModalConfirm] = useState<IModalConfirm>({
+    isShowModal: false,
+    redirectUrl: "",
+    message: "",
+  });
 
   const menuItems: MenuItem[] = [
     { icon: <HomeOutlined />, label: "Home", page: "home" },
@@ -36,16 +43,20 @@ const Menu = ({ setCurrentPage }: MenuProps) => {
     },
     { icon: <UserOutlined />, label: "About", page: "about" },
     { icon: <FolderOutlined />, label: "Projects", page: "projects" },
-    // { icon: <RiBrushFill />, label: "Design" },
-    { icon: <GithubOutlined />, label: "GitHub", page: "github" },
-    { icon: <InstagramOutlined />, label: "Instagram", page: "ins" },
     { icon: <YoutubeOutlined />, label: "Youtube", page: "youtube" },
-    // { icon: <RiArticleFill />, label: "Blog" },
-    { icon: <LinkOutlined />, label: "Contact", page: "contact" },
     {
       icon: <Divider height="30px" width="1px" bgColor="#e2e2e2" />,
       label: "",
     },
+    // { icon: <RiBrushFill />, label: "Design" },
+    { icon: <GithubOutlined />, label: "GitHub", page: "github" },
+    { icon: <InstagramOutlined />, label: "Instagram", page: "ins" },
+    // { icon: <RiArticleFill />, label: "Blog" },
+    {
+      icon: <Divider height="30px" width="1px" bgColor="#e2e2e2" />,
+      label: "",
+    },
+    { icon: <LinkOutlined />, label: "Contact", page: "contact" },
     {
       icon: <SettingOutlined />,
       label: "Settings",
@@ -62,10 +73,18 @@ const Menu = ({ setCurrentPage }: MenuProps) => {
         toggleTheme();
         break;
       case "github":
-        window.open("https://github.com/thonglnt", "_blank");
+        setModalConfirm({
+          isShowModal: true,
+          redirectUrl: "https://github.com/thonglnt",
+          message: "Bạn có muốn chuyển tới trang Github của tớ không?",
+        });
         break;
       case "ins":
-        window.open("https://www.instagram.com/letrung.thong", "_blank");
+        setModalConfirm({
+          isShowModal: true,
+          redirectUrl: "https://www.instagram.com/letrung.thong",
+          message: "Bạn có muốn chuyển tới trang Instagram của tớ không?",
+        });
         break;
       default:
         setCurrentPage(page);
@@ -73,8 +92,30 @@ const Menu = ({ setCurrentPage }: MenuProps) => {
     }
   };
 
+  const handleCancel = () => {
+    setModalConfirm({
+      isShowModal: false,
+      redirectUrl: "",
+      message: "",
+    });
+  };
+
+  const handleConfirm = () => {
+    window.open(modalConfirm.redirectUrl, "_blank");
+    setModalConfirm({
+      isShowModal: false,
+      redirectUrl: "",
+      message: "",
+    });
+  };
+
   return (
     <div className="menu-container">
+      <ModalConfirm
+        modalConfirmProps={modalConfirm}
+        onCancel={handleCancel}
+        onConfirm={handleConfirm}
+      />
       <div className="menu-scroll">
         {menuItems.map((item, index) =>
           !item.label ? (
